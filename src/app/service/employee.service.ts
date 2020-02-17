@@ -19,31 +19,31 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<EmployeeDto[]> {
-    return this.http.get<EmployeeDto[]>(API_BASE_URL + "/employee/all");
+    return this.http.get<EmployeeDto[]>(API_BASE_URL + "/employees");
   }
 
   getPageableView(filter: string, sortDirection: string, pageNumber: number, pageSize: number): Observable<EmployeeViewDto[]> {
-    return this.http.get<EmployeeViewDto[]>(API_BASE_URL + "/employee/all/view?filter=" + filter
+    return this.http.get<EmployeeViewDto[]>(API_BASE_URL + "/employees/view?filter=" + filter
       + "&sortDirection=" + sortDirection + "&page=" + pageNumber + "&size=" + pageSize);
   }
 
   getCount(): Observable<number> {
-    return this.http.get<number>(API_BASE_URL + "/employee/all/count");
+    return this.http.get<number>(API_BASE_URL + "/employees/count");
   }
 
   get(employeeId: number): Observable<EmployeeDto> {
-    return this.http.get<EmployeeDto>(API_BASE_URL + "/employee/" + employeeId);
+    return this.http.get<EmployeeDto>(API_BASE_URL + "/employees/" + employeeId);
   }
 
   create(employeeDto: EmployeeDto): Observable<EmployeeDto> {
-    return this.http.post<EmployeeDto>(API_BASE_URL + "/employee/create", employeeDto, httpOptions);
+    return this.http.post<EmployeeDto>(API_BASE_URL + "/employees", employeeDto, httpOptions);
   }
 
   update(employeeDto: EmployeeDto, employeeId: number): Observable<EmployeeDto> {
-    return this.http.put<EmployeeDto>(API_BASE_URL + "/employee/update?employeeId=" + employeeId, employeeDto, httpOptions);
+    return this.http.put<EmployeeDto>(API_BASE_URL + "/employees?employeeId=" + employeeId, employeeDto, httpOptions);
   }
 
   delete(employeeId: number): Observable<any> {
-    return this.http.delete(API_BASE_URL + "/employee/delete/" + employeeId, httpOptions);
+    return this.http.delete(API_BASE_URL + "/employees/" + employeeId, httpOptions);
   }
 }
