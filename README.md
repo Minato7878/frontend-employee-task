@@ -4,7 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. If you want to run project on another port, you should also change `CrossOrigin("http://localhost:4200")` parameter on the backend server side, according to port which you want to use, without it this REST application will not work correct!
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. 
+- If you want to run project on another port, you should also change `CrossOrigin("http://localhost:4200")` parameter on the backend server side, according to port which you want to use, without it this REST application will not work correct!
 
 
 ## Code scaffolding
