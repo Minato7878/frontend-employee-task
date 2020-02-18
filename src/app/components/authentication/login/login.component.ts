@@ -19,7 +19,17 @@ export class LoginComponent implements OnInit {
   constructor(private authService: CustomAuthService, private tokenStorage: TokenStorageService,
     private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if(this.tokenStorage.getToken()!=null){
+      this.router.navigate(['home']).then(e => {
+        if (e) {
+          console.log("Navigation is successful!");
+        } else {
+          console.log("Navigation has failed!");
+        }
+      });
+    }
+  }
 
   onSubmit() {
     this.loginInfo = new SignInForm(

@@ -34,9 +34,13 @@ export class EmpEditComponent implements OnInit {
       this.empService.get(this.employeeId).subscribe(employee => {
         this.editForm.controls['name'].setValue(employee.name);
         this.editForm.controls['isActive'].setValue(employee.isActive);
-        this.depService.get(employee.departmentId).subscribe(department => {
-          this.editForm.controls['departmentId'].setValue(department.id);
-        });
+        if (employee.departmentId != 0) {
+          this.depService.get(employee.departmentId).subscribe(department => {
+            this.editForm.controls['departmentId'].setValue(department.id);
+          });
+        } else {
+          this.editForm.controls['departmentId'].setValue(null);
+        }
       });
     });
   }
